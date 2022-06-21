@@ -26,16 +26,15 @@
 }
 
 /* Helpers */
-.pointer:hover{
+.pointer:hover {
   cursor: pointer;
 }
 
-/* Footer */
-.bd-footer{
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0px -15px 10px -15px rgba(0, 0, 0, .15);    
+.circle {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: .5rem;
 }

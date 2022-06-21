@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { userDTO } from "../models/user.model";
 
-export function Register(props: userDTO){
+export function Register(props: userDTO) {
 
     const [email, setEmail] = useState(props.email);
     const [password, setPassword] = useState(props.password);
@@ -10,45 +10,45 @@ export function Register(props: userDTO){
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        
+
         const response = await fetch('https://reqres.in/api/register', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                email, 
+                email,
                 password
             })
         });
 
         const content = await response.json();
 
-        if(content.error){
+        if (content.error) {
             var errNotice = document.querySelector('#err');
-            if(errNotice){
+            if (errNotice) {
                 errNotice.classList.remove("d-none");
-                errNotice.classList.add("d-block"); 
+                errNotice.classList.add("d-block");
                 errNotice.innerHTML = content.error;
-            }            
-        }else if(content.token){
+            }
+        } else if (content.token) {
             var successNotice = document.querySelector('#success');
-            if(successNotice){
+            if (successNotice) {
                 successNotice.classList.remove("d-none");
-                successNotice.classList.add("d-block"); 
+                successNotice.classList.add("d-block");
                 successNotice.innerHTML = "Registration successful";
                 alert(`Your registration token is ${content.token}`);
                 // Redirect to login page
                 setTimeout(() => {
                     setNavigate(true);
-                }, 3000);     
-            } 
+                }, 3000);
+            }
         }
     }
 
-    if(navigate){
+    if (navigate) {
         return <Navigate to="/login" />;
     }
-    return(
-        
+    return (
+
         <main className="d-flex align-items-center mt-5">
             <section className="form-signin text-center w-100 m-auto bg-white rounded shadow-sm border p-4">
                 <p id="err" className="d-none text-danger fw-bold"></p>

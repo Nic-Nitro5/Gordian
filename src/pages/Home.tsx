@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function Home(){
-    return(
+export default function Home() {
+    return (
         <div className="container">
             <h1 className="my-4">Home</h1>
             <div className="card shadow-sm bg-white border rounded">

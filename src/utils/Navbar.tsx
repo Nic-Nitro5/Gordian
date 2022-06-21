@@ -3,11 +3,11 @@ import { DoorOpen, HouseDoor, List, Pencil, People, X } from "react-bootstrap-ic
 import { Link } from "react-router-dom";
 import './navbar.css';
 
-export function Navbar(){
+export function Navbar() {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
 
-    return(
+    return (
         <>
             <nav className="navbar bg-white shadow border">
                 <div className="container-fluid">
@@ -27,9 +27,9 @@ export function Navbar(){
                     <div className="col-sm-12 col-md-12 col-lg-6">
                         <ul>
                             <li className="pointer">
-                                <Link to="/" className="text-dark" onClick={showSidebar}>
+                                <Link to="/resources" className="text-dark" onClick={showSidebar}>
                                     <HouseDoor size={20} />
-                                    <span>Home</span>
+                                    <span>Resources</span>
                                 </Link>
                             </li>
                             <li className="pointer">
@@ -58,6 +58,6 @@ export function Navbar(){
                     </div>
                 </div>
             </section>
-        </>        
+        </>
     );
 }
